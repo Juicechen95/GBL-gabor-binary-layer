@@ -1,5 +1,5 @@
 # GBL-gabor-binary-layer
-implementation for gbl
+implementation for the initial gbl.
 # I sort my code
 > torch version
 
@@ -8,3 +8,8 @@ implementation for gbl
 > > torch projects
 
 > pytorch version
+
+>> pytorch src
+
+>> pytorch projects
+

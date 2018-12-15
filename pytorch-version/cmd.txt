@@ -1,0 +1,49 @@
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet50 -b 64 '/data1/datasets/imageNet/ILSVRC2012/'
+
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet50 /data1/datasets/imageNet/ILSVRC2012/ -b 64 --epochs 2
+tensorboard --logdir='./logs' --port=6006
+
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet50 /data1/datasets/imageNet/ILSVRC2012/ -b 64 -p 5000
+
+CUDA_VISIBLE_DEVICES=0 python main.py -a resnet50 /data1/datasets/imageNet/ILSVRC2012/ -b 64 -p 5000 -j 55
+
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet50 /data1/datasets/imageNet/ILSVRC2012/ -b 64 -p 10 -j 55
+tensorboard --logdir='./logs/test' --port=6007
+
+CUDA_VISIBLE_DEVICES=1 python main.py --resume '/home/jcz/github/pytorch_examples/imagenet/checkpoint.pth.tar' -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 128
+
+11.6
+CUDA_VISIBLE_DEVICES=0 python main.py -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 64 --epochs 75
+
+#CUDA_VISIBLE_DEVICES=0,1 python main.py -a resnet34 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 64 --epochs 75
+
+tensorboard --logdir='./logs/test/events.out.tfevents.1541514098.amax' --port=6007
+
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 64 -p 10 -j 64 --epochs 20
+
+11.8
+CUDA_VISIBLE_DEVICES=1 python main.py --resume '/home/jcz/github/pytorch_examples/imagenet/checkpoint.pth.tar' -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 128
+
+
+11.12
+tensorboard --logdir='./logs/test/resnet18' --port=6007
+
+11.14
+CUDA_VISIBLE_DEVICES=2 python main.py --resume '/home/jcz/github/pytorch_examples/imagenet/checkpoint.pth.tar' -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 128
+
+11.27
+CUDA_VISIBLE_DEVICES=2 python main.py -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 256 --lr 0.06
+
+test lmdb
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 2 -p 10 -j 32 --lmdb 1
+
+12.11
+tensorboard --logdir='./logs/test/gbl-resnet' --port=6007
+tensorboard --logdir='./logs/test/resnet18' --port=6008
+CUDA_VISIBLE_DEVICES=1 python main.py -a resnet18 /home/jcz/data/ILSVRC2012/ -b 256 -p 10 -j 4 --lmdb 1 -log ./logs/test/gbl-resnet/lr8e-2 --lr 0.08
+
+CUDA_VISIBLE_DEVICES=2 python main.py --resume '/home/jcz/github/pytorch_examples/imagenet/checkpoint.pth.tar' -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 64 --lr 0.06
+tensorboard --logdir='./logs/test/gbl-resnet' --port=6007
+tensorboard --logdir='./logs/test/resnet18' --port=6006
+
+CUDA_VISIBLE_DEVICES=3 python main.py --resume '/home/jcz/github/pytorch_examples/imagenet/checkpoint.pth.tar' -a resnet18 /data1/datasets/imageNet/ILSVRC2012/ -b 256 -p 10 -j 32 --lr 0.06 --lmdb 1

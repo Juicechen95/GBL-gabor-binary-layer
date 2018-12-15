@@ -13,6 +13,14 @@
 
 另外训练gbl可变的，放在gbl-resnet/semi-fixed/lr下面
 
+-- 试验设置
+调整lr-decay为每隔20个epochs
+放在gbl-resnet／fixed/lr下面
+
+1卡： lr=0.4  fixed 
+
+2卡： lr=0.06 resume 之前跑到26epoch的模型
+
 
 # ImageNet training in PyTorch
 

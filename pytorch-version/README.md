@@ -1,3 +1,19 @@
+# Records
+## 12.15
+
+训练了lr0.08的lmdb到21 epoch，震荡较厉害；
+
+训练了lr0.06的原始dataloader到24 epoch，震荡非常厉害；
+
+这两个的log放在test/gbl-resnet下面
+
+使用了LMDB后速度并没有增快，决定还是使用原始的dataloader。
+
+观察到原始resent在epoch8有个突变，计划调整lr，以及lr-decay的位置，，重新训练几个模型，放在gbl-resnet／fixed/lr下面
+
+另外训练gbl可变的，放在gbl-resnet/semi-fixed/lr下面
+
+
 # ImageNet training in PyTorch
 
 This implements training of popular model architectures, such as ResNet, AlexNet, and VGG on the ImageNet dataset.
